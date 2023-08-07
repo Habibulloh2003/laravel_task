@@ -22,6 +22,15 @@ DB_USERNAME=root
 DB_PASSWORD=root
 ```
 
+Migrate & seed database
+
+```sh
+php artisan migrate
+```
+```sh
+php artisan db:seed
+```
+
 ## Run
 
 ```sh

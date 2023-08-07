@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('slug', 256)->unique();
             $table->string('image', 256);
             $table->bigInteger('views');
+            $table->string('tag', 256);
             $table->timestamps();
         });
     }

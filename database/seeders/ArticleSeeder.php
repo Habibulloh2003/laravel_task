@@ -23,8 +23,17 @@ class ArticleSeeder extends Seeder
             "https://visor.ph/wp-content/uploads/2023/05/The-2024-Nissan-GT-R-costs-P12.445-million-thumb.jpg"
         ];
 
+        $tags = [
+            'cars',
+            'nature',
+            'business',
+            'policy',
+            'holidays'
+        ];
+
         for ($i = 1; $i <= 30; $i++){
             $data = json_decode(Http::get("https://jsonplaceholder.typicode.com/comments/$i")->body(), false, 512, JSON_THROW_ON_ERROR);
+
 
             Article::create([
                 "title" => $data->name,
@@ -32,6 +41,7 @@ class ArticleSeeder extends Seeder
                 "slug" => Str::slug($data->name, '-'),
                 "image" => $images[random_int(0, 4)],
                 "views" => random_int(10, 2500),
+                "tag" => $tags[random_int(0, 4)],
             ]);
         }
     }
